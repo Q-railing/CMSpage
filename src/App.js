@@ -1,24 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+import Mainpage from './components/Mainpage';
+import Systems from './components/Systems';
+import { Langcontext } from './components/context/Langcontext';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [context, setcontext] = useState()
+  const [globallang, setgloballang] = useState()
+
+  function setlang(langval){
+    setgloballang(langval)
+    console.log(langval)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Router>
+    <Langcontext.Provider value={{ context, setcontext}}>
+    <Routes>
+
+
+    <Route path="/" element={<Mainpage lang={setlang}></Mainpage>} />
+    <Route path="/systems" element={<Systems></Systems>} />
+    
+    <Route path="/products" element={<Systems></Systems>} />
+    
+
+    </Routes>
+    
+    </Langcontext.Provider>
+    </Router>
+    </>
   );
 }
 
