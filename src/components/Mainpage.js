@@ -8,6 +8,7 @@ import Header from './includes/Header';
 import Banner from './includes/Banner';
 import Mainpagetext from './includes/Mainpagetext';
 import Bestseller from './includes/Bestseller';
+import Footer from './includes/Footer';
 
 
 function Mainpage(props) {
@@ -36,6 +37,7 @@ function Mainpage(props) {
     <Bestseller lang={lang}></Bestseller>
   </div>  
   </div>
+  <Footer></Footer>
   </>
     
   )

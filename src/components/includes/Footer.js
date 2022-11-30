@@ -1,10 +1,8 @@
 import React from 'react'
 import './Footer.css'
-import React, { useContext } from 'react'
 
-import { Langcontext } from '../context/Langcontext';
 function Footer() {
-  const { context, setcontext}= useContext(Langcontext)
+
 
   return (
     <div className='Footer-wrap'>
